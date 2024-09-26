@@ -2,9 +2,9 @@
 {
     public class RequestVersion
     {
-        public int RequestVersionID { get; set; }
-        public int RequestID { get; set; }
-        public int VersionNumber { get; set; }
+        public Guid Id { get; set; }
+        public Guid RequestID { get; set; }
+        public Guid VersionNumber { get; set; }
         public string RequestData { get; set; }
         public DateTime CreatedDate { get; set; }
 

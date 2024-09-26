@@ -2,9 +2,9 @@
 {
     public class ApprovalGroupMember
     {
-        public int ApprovalGroupMemberID { get; set; }
-        public int ApprovalGroupID { get; set; }
-        public int UserID { get; set; }
+        public Guid Id { get; set; }
+        public Guid ApprovalGroupID { get; set; }
+        public Guid UserID { get; set; }
 
         public ApprovalGroup ApprovalGroup { get; set; }
         public ApprovalUser User { get; set; }

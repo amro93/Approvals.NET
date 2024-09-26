@@ -2,12 +2,12 @@
 {
     public class Request
     {
-        public int RequestID { get; set; }
-        public int RequestorID { get; set; }
+        public Guid Id { get; set; }
+        public Guid RequestorID { get; set; }
         public DateTime RequestDate { get; set; }
         public string RequestDetails { get; set; }
-        public int CurrentStateID { get; set; }
-        public int VersionNumber { get; set; }
+        public Guid CurrentStateID { get; set; }
+        public Guid VersionNumber { get; set; }
 
         public ApprovalUser Requestor { get; set; }
         public State CurrentState { get; set; }

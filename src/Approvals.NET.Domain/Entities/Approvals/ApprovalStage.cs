@@ -2,9 +2,10 @@
 {
     public class ApprovalStage
     {
-        public int StageID { get; set; }
+        public Guid Id { get; set; }
+        public Guid StageID { get; set; }
         public string StageName { get; set; }
-        public int StageOrder { get; set; }
+        public Guid StageOrder { get; set; }
 
         public ICollection<Approval> Approvals { get; set; }
     }

@@ -2,7 +2,7 @@
 {
     public class State
     {
-        public int StateID { get; set; }
+        public Guid Id { get; set; }
         public string StateName { get; set; }
 
         public ICollection<Request> Requests { get; set; }

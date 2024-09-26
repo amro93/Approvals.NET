@@ -2,10 +2,10 @@
 {
     public class Escalation
     {
-        public int EscalationID { get; set; }
-        public int RequestID { get; set; }
-        public int OriginalApproverID { get; set; }
-        public int EscalatedToID { get; set; }
+        public Guid Id { get; set; }
+        public Guid RequestID { get; set; }
+        public Guid OriginalApproverID { get; set; }
+        public Guid EscalatedToID { get; set; }
         public DateTime EscalationDate { get; set; }
 
         public Request Request { get; set; }

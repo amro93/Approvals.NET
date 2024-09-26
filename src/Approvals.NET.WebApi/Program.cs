@@ -1,9 +1,9 @@
 using Approvals.NET.Domain.Entities.Identity;
-using Approvals.NET.Infrastructure.Extensions.AppBuilder;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Identity;
 using Approvals.NET.Infrastructure.EfCore.DbContexts;
 using Microsoft.EntityFrameworkCore;
+using Approvals.NET.Infrastructure.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 

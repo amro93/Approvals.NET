@@ -2,9 +2,9 @@
 {
     public class Transition
     {
-        public int TransitionID { get; set; }
-        public int FromStateID { get; set; }
-        public int ToStateID { get; set; }
+        public Guid Id { get; set; }
+        public Guid FromStateID { get; set; }
+        public Guid ToStateID { get; set; }
         public string ActionRequired { get; set; }
 
         public State FromState { get; set; }

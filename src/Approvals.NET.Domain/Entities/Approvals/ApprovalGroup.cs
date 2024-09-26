@@ -2,7 +2,7 @@
 {
     public class ApprovalGroup
     {
-        public int ApprovalGroupID { get; set; }
+        public Guid Id { get; set; }
         public string GroupName { get; set; }
         public bool RequireAllApprovals { get; set; }
 

@@ -2,7 +2,7 @@
 {
     public class Condition
     {
-        public int ConditionID { get; set; }
+        public Guid Id { get; set; }
         public string ConditionName { get; set; }
         public string ConditionExpression { get; set; }
 

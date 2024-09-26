@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <Folder Include="EfCore\Migrations\" />
-    <Folder Include="Extensions\DependencyInjection\" />
+    <Folder Include="Extensions\AppBuilder\" />
     <Folder Include="Services\" />
   </ItemGroup>
 

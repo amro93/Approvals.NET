@@ -2,7 +2,7 @@
 {
     public class Group
     {
-        public int GroupID { get; set; }
+        public Guid Id { get; set; }
         public string GroupName { get; set; }
 
         public ICollection<GroupMember> GroupMembers { get; set; }

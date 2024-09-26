@@ -7,13 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Approvals.NET.Infrastructure.Extensions.AppBuilder
+namespace Approvals.NET.Infrastructure.Extensions.DependencyInjection
 {
     public static class ServicesRegisterer
     {
         public static void AddAppEfCore(this IServiceCollection services, string connectionString)
         {
-            
             services.AddDbContextPool<ApplicationDbContext>(o =>
             {
                 o.LogTo(Console.WriteLine);
