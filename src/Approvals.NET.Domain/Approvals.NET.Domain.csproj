@@ -7,10 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Domain Events\" />
+    <Compile Remove="Interfaces\ITenantEntity.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Events\" />
     <Folder Include="Exceptions\" />
-    <Folder Include="Extensions\AppBuilder\" />
-    <Folder Include="Extensions\DependencyInjection\" />
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="8.0.8" />
     <PackageReference Include="Ulid" Version="1.3.4" />
   </ItemGroup>

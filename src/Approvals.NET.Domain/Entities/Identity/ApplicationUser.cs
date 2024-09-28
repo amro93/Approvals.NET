@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Approvals.NET.Domain.Entities.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Approvals.NET.Domain.Entities.Identity
 {
-    public class ApplicationUser : IdentityUser<Guid>
+    public class ApplicationUser : BaseUser<ApplicationUserRole, ApplicationUserClaim, ApplicationUserToken, ApplicationUserLogin>
     {
         public ApplicationUser()
         {
@@ -15,11 +15,13 @@ namespace Approvals.NET.Domain.Entities.Identity
             ConcurrencyStamp = Guid.NewGuid().ToString();
         }
 
-        public ApplicationUser(string userName) : this()
+        public ApplicationUser(string userName) : base(userName)
         {
-            UserName = userName;
+            Id = Ulid.NewUlid().ToGuid();
+            ConcurrencyStamp = Guid.NewGuid().ToString();
         }
 
-
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }

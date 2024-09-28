@@ -20,13 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Extensions\AppBuilder\" />
-    <Folder Include="Extensions\DependencyInjection\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Approvals.NET.Application\Approvals.NET.Application.csproj" />
+    <ProjectReference Include="..\Approvals.NET.Infrastructure.Presistence.EfCore\Approvals.NET.Infrastructure.Presistence.EfCore.csproj" />
+    <ProjectReference Include="..\Approvals.NET.Infrastructure.Presistence\Approvals.NET.Infrastructure.Presistence.csproj" />
     <ProjectReference Include="..\Approvals.NET.Infrastructure\Approvals.NET.Infrastructure.csproj" />
   </ItemGroup>
 

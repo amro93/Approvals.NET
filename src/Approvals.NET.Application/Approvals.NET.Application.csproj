@@ -8,11 +8,12 @@
 
   <ItemGroup>
     <Folder Include="Approvals\" />
-    <Folder Include="Extensions\AppBuilder\" />
-    <Folder Include="Extensions\DependencyInjection\" />
-    <Folder Include="Permissions\" />
-    <Folder Include="Roles\" />
-    <Folder Include="Users\" />
+    <Folder Include="Common\" />
+    <Folder Include="Identity\Permissions\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.10.0" />
   </ItemGroup>
 
   <ItemGroup>
