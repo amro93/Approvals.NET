@@ -29,7 +29,7 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    StageID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    StageId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     StageName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     StageOrder = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -44,14 +44,14 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserIdentityId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DelegateID = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    DelegateId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ApprovalUsers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ApprovalUsers_ApprovalUsers_DelegateID",
-                        column: x => x.DelegateID,
+                        name: "FK_ApprovalUsers_ApprovalUsers_DelegateId",
+                        column: x => x.DelegateId,
                         principalTable: "ApprovalUsers",
                         principalColumn: "Id");
                 });
@@ -158,21 +158,21 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ApprovalGroupID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserID = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    ApprovalGroupId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ApprovalGroupMembers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ApprovalGroupMembers_ApprovalGroups_ApprovalGroupID",
-                        column: x => x.ApprovalGroupID,
+                        name: "FK_ApprovalGroupMembers_ApprovalGroups_ApprovalGroupId",
+                        column: x => x.ApprovalGroupId,
                         principalTable: "ApprovalGroups",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ApprovalGroupMembers_ApprovalUsers_UserID",
-                        column: x => x.UserID,
+                        name: "FK_ApprovalGroupMembers_ApprovalUsers_UserId",
+                        column: x => x.UserId,
                         principalTable: "ApprovalUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -294,21 +294,21 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    GroupID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserID = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    GroupId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_GroupMembers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_GroupMembers_ApprovalUsers_UserID",
-                        column: x => x.UserID,
+                        name: "FK_GroupMembers_ApprovalUsers_UserId",
+                        column: x => x.UserId,
                         principalTable: "ApprovalUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_GroupMembers_Groups_GroupID",
-                        column: x => x.GroupID,
+                        name: "FK_GroupMembers_Groups_GroupId",
+                        column: x => x.GroupId,
                         principalTable: "Groups",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -319,24 +319,24 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    RequestorID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    RequestorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     RequestDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     RequestDetails = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CurrentStateID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CurrentStateId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     VersionNumber = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Requests", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Requests_ApprovalUsers_RequestorID",
-                        column: x => x.RequestorID,
+                        name: "FK_Requests_ApprovalUsers_RequestorId",
+                        column: x => x.RequestorId,
                         principalTable: "ApprovalUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Requests_States_CurrentStateID",
-                        column: x => x.CurrentStateID,
+                        name: "FK_Requests_States_CurrentStateId",
+                        column: x => x.CurrentStateId,
                         principalTable: "States",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -347,25 +347,23 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FromStateID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ToStateID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FromStateId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ToStateId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ActionRequired = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Transitions", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Transitions_States_FromStateID",
-                        column: x => x.FromStateID,
+                        name: "FK_Transitions_States_FromStateId",
+                        column: x => x.FromStateId,
                         principalTable: "States",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Transitions_States_ToStateID",
-                        column: x => x.ToStateID,
+                        name: "FK_Transitions_States_ToStateId",
+                        column: x => x.ToStateId,
                         principalTable: "States",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -373,31 +371,31 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    RequestID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ApproverID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    RequestId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ApproverId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ApprovalDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ApprovalStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RejectionReason = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    StageID = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    ApprovalGroupID = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    StageId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ApprovalGroupId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     GroupId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Approvals", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Approvals_ApprovalGroups_ApprovalGroupID",
-                        column: x => x.ApprovalGroupID,
+                        name: "FK_Approvals_ApprovalGroups_ApprovalGroupId",
+                        column: x => x.ApprovalGroupId,
                         principalTable: "ApprovalGroups",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Approvals_ApprovalStages_StageID",
-                        column: x => x.StageID,
+                        name: "FK_Approvals_ApprovalStages_StageId",
+                        column: x => x.StageId,
                         principalTable: "ApprovalStages",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Approvals_ApprovalUsers_ApproverID",
-                        column: x => x.ApproverID,
+                        name: "FK_Approvals_ApprovalUsers_ApproverId",
+                        column: x => x.ApproverId,
                         principalTable: "ApprovalUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -407,11 +405,11 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                         principalTable: "Groups",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Approvals_Requests_RequestID",
-                        column: x => x.RequestID,
+                        name: "FK_Approvals_Requests_RequestId",
+                        column: x => x.RequestId,
                         principalTable: "Requests",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -419,32 +417,32 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    RequestID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    OriginalApproverID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    EscalatedToID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    RequestId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    OriginalApproverId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    EscalatedToId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     EscalationDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Escalations", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Escalations_ApprovalUsers_EscalatedToID",
-                        column: x => x.EscalatedToID,
+                        name: "FK_Escalations_ApprovalUsers_EscalatedToId",
+                        column: x => x.EscalatedToId,
                         principalTable: "ApprovalUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Escalations_ApprovalUsers_OriginalApproverID",
-                        column: x => x.OriginalApproverID,
+                        name: "FK_Escalations_ApprovalUsers_OriginalApproverId",
+                        column: x => x.OriginalApproverId,
                         principalTable: "ApprovalUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Escalations_Requests_RequestID",
-                        column: x => x.RequestID,
+                        name: "FK_Escalations_Requests_RequestId",
+                        column: x => x.RequestId,
                         principalTable: "Requests",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -452,7 +450,7 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    RequestID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    RequestId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     VersionNumber = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     RequestData = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -461,8 +459,8 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 {
                     table.PrimaryKey("PK_RequestVersions", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_RequestVersions_Requests_RequestID",
-                        column: x => x.RequestID,
+                        name: "FK_RequestVersions_Requests_RequestId",
+                        column: x => x.RequestId,
                         principalTable: "Requests",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -473,56 +471,56 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ApprovalID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ConditionID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ApprovalId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ConditionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IsMet = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ApprovalConditions", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ApprovalConditions_Approvals_ApprovalID",
-                        column: x => x.ApprovalID,
+                        name: "FK_ApprovalConditions_Approvals_ApprovalId",
+                        column: x => x.ApprovalId,
                         principalTable: "Approvals",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ApprovalConditions_Conditions_ConditionID",
-                        column: x => x.ConditionID,
+                        name: "FK_ApprovalConditions_Conditions_ConditionId",
+                        column: x => x.ConditionId,
                         principalTable: "Conditions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_ApprovalConditions_ApprovalID",
+                name: "IX_ApprovalConditions_ApprovalId",
                 table: "ApprovalConditions",
-                column: "ApprovalID");
+                column: "ApprovalId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ApprovalConditions_ConditionID",
+                name: "IX_ApprovalConditions_ConditionId",
                 table: "ApprovalConditions",
-                column: "ConditionID");
+                column: "ConditionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ApprovalGroupMembers_ApprovalGroupID",
+                name: "IX_ApprovalGroupMembers_ApprovalGroupId",
                 table: "ApprovalGroupMembers",
-                column: "ApprovalGroupID");
+                column: "ApprovalGroupId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ApprovalGroupMembers_UserID",
+                name: "IX_ApprovalGroupMembers_UserId",
                 table: "ApprovalGroupMembers",
-                column: "UserID");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Approvals_ApprovalGroupID",
+                name: "IX_Approvals_ApprovalGroupId",
                 table: "Approvals",
-                column: "ApprovalGroupID");
+                column: "ApprovalGroupId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Approvals_ApproverID",
+                name: "IX_Approvals_ApproverId",
                 table: "Approvals",
-                column: "ApproverID");
+                column: "ApproverId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Approvals_GroupId",
@@ -530,19 +528,19 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 column: "GroupId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Approvals_RequestID",
+                name: "IX_Approvals_RequestId",
                 table: "Approvals",
-                column: "RequestID");
+                column: "RequestId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Approvals_StageID",
+                name: "IX_Approvals_StageId",
                 table: "Approvals",
-                column: "StageID");
+                column: "StageId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ApprovalUsers_DelegateID",
+                name: "IX_ApprovalUsers_DelegateId",
                 table: "ApprovalUsers",
-                column: "DelegateID");
+                column: "DelegateId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -550,11 +548,11 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetRoles_NormalizedName_TenantId",
+                name: "RoleNameIndex",
                 table: "AspNetRoles",
-                columns: new[] { "NormalizedName", "TenantId" },
+                column: "NormalizedName",
                 unique: true,
-                filter: "[NormalizedName] IS NOT NULL AND [TenantId] IS NOT NULL");
+                filter: "[NormalizedName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserClaims_UserId",
@@ -577,61 +575,61 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_NormalizedUserName_TenantId",
+                name: "UserNameIndex",
                 table: "AspNetUsers",
-                columns: new[] { "NormalizedUserName", "TenantId" },
+                column: "NormalizedUserName",
                 unique: true,
-                filter: "[NormalizedUserName] IS NOT NULL AND [TenantId] IS NOT NULL");
+                filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Escalations_EscalatedToID",
+                name: "IX_Escalations_EscalatedToId",
                 table: "Escalations",
-                column: "EscalatedToID");
+                column: "EscalatedToId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Escalations_OriginalApproverID",
+                name: "IX_Escalations_OriginalApproverId",
                 table: "Escalations",
-                column: "OriginalApproverID");
+                column: "OriginalApproverId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Escalations_RequestID",
+                name: "IX_Escalations_RequestId",
                 table: "Escalations",
-                column: "RequestID");
+                column: "RequestId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_GroupMembers_GroupID",
+                name: "IX_GroupMembers_GroupId",
                 table: "GroupMembers",
-                column: "GroupID");
+                column: "GroupId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_GroupMembers_UserID",
+                name: "IX_GroupMembers_UserId",
                 table: "GroupMembers",
-                column: "UserID");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Requests_CurrentStateID",
+                name: "IX_Requests_CurrentStateId",
                 table: "Requests",
-                column: "CurrentStateID");
+                column: "CurrentStateId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Requests_RequestorID",
+                name: "IX_Requests_RequestorId",
                 table: "Requests",
-                column: "RequestorID");
+                column: "RequestorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RequestVersions_RequestID",
+                name: "IX_RequestVersions_RequestId",
                 table: "RequestVersions",
-                column: "RequestID");
+                column: "RequestId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Transitions_FromStateID",
+                name: "IX_Transitions_FromStateId",
                 table: "Transitions",
-                column: "FromStateID");
+                column: "FromStateId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Transitions_ToStateID",
+                name: "IX_Transitions_ToStateId",
                 table: "Transitions",
-                column: "ToStateID");
+                column: "ToStateId");
         }
 
         /// <inheritdoc />

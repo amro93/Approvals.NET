@@ -1,15 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Approvals.NET.Application.Identity.Tenants;
+using Approvals.NET.Application.Identity.Tenants.Dto;
+using Approvals.NET.Domain.Wrappers;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using DClean.Application.DTOs.Tenants;
-using DClean.Application.Filters;
-using DClean.Application.Interfaces.Identity;
-using DClean.Application.Interfaces.Services;
-using DClean.Application.Wrappers;
-
 namespace Approvals.NET.WebApi.Controllers
 {
     public class TenantsController : BaseApiController

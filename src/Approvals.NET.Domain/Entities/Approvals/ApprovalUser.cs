@@ -10,7 +10,7 @@ namespace Approvals.NET.Domain.Entities.Approvals
     {
         public Guid Id { get; set; }
         public string UserIdentityId { get; set; }
-        public Guid? DelegateID { get; set; }
+        public Guid? DelegateId { get; set; }
 
         public ApprovalUser Delegate { get; set; }
         public ICollection<ApprovalUser> Delegates { get; set; }

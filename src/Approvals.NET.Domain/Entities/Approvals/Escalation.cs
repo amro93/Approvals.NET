@@ -3,9 +3,9 @@
     public class Escalation
     {
         public Guid Id { get; set; }
-        public Guid RequestID { get; set; }
-        public Guid OriginalApproverID { get; set; }
-        public Guid EscalatedToID { get; set; }
+        public Guid RequestId { get; set; }
+        public Guid OriginalApproverId { get; set; }
+        public Guid EscalatedToId { get; set; }
         public DateTime EscalationDate { get; set; }
 
         public Request Request { get; set; }

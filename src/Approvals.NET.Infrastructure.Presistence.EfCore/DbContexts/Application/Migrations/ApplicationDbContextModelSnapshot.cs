@@ -31,14 +31,14 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                     b.Property<DateTime>("ApprovalDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("ApprovalGroupID")
+                    b.Property<Guid?>("ApprovalGroupId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ApprovalStatus")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("ApproverID")
+                    b.Property<Guid>("ApproverId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("GroupId")
@@ -48,23 +48,23 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("RequestID")
+                    b.Property<Guid>("RequestId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("StageID")
+                    b.Property<Guid?>("StageId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ApprovalGroupID");
+                    b.HasIndex("ApprovalGroupId");
 
-                    b.HasIndex("ApproverID");
+                    b.HasIndex("ApproverId");
 
                     b.HasIndex("GroupId");
 
-                    b.HasIndex("RequestID");
+                    b.HasIndex("RequestId");
 
-                    b.HasIndex("StageID");
+                    b.HasIndex("StageId");
 
                     b.ToTable("Approvals");
                 });
@@ -75,10 +75,10 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ApprovalID")
+                    b.Property<Guid>("ApprovalId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ConditionID")
+                    b.Property<Guid>("ConditionId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsMet")
@@ -86,9 +86,9 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ApprovalID");
+                    b.HasIndex("ApprovalId");
 
-                    b.HasIndex("ConditionID");
+                    b.HasIndex("ConditionId");
 
                     b.ToTable("ApprovalConditions");
                 });
@@ -117,17 +117,17 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ApprovalGroupID")
+                    b.Property<Guid>("ApprovalGroupId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("UserID")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ApprovalGroupID");
+                    b.HasIndex("ApprovalGroupId");
 
-                    b.HasIndex("UserID");
+                    b.HasIndex("UserId");
 
                     b.ToTable("ApprovalGroupMembers");
                 });
@@ -138,7 +138,7 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("StageID")
+                    b.Property<Guid>("StageId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("StageName")
@@ -159,7 +159,7 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("DelegateID")
+                    b.Property<Guid?>("DelegateId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("UserIdentityId")
@@ -168,7 +168,7 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DelegateID");
+                    b.HasIndex("DelegateId");
 
                     b.ToTable("ApprovalUsers");
                 });
@@ -198,25 +198,25 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("EscalatedToID")
+                    b.Property<Guid>("EscalatedToId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("EscalationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("OriginalApproverID")
+                    b.Property<Guid>("OriginalApproverId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("RequestID")
+                    b.Property<Guid>("RequestId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EscalatedToID");
+                    b.HasIndex("EscalatedToId");
 
-                    b.HasIndex("OriginalApproverID");
+                    b.HasIndex("OriginalApproverId");
 
-                    b.HasIndex("RequestID");
+                    b.HasIndex("RequestId");
 
                     b.ToTable("Escalations");
                 });
@@ -242,17 +242,17 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("GroupID")
+                    b.Property<Guid>("GroupId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("UserID")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GroupID");
+                    b.HasIndex("GroupId");
 
-                    b.HasIndex("UserID");
+                    b.HasIndex("UserId");
 
                     b.ToTable("GroupMembers");
                 });
@@ -263,7 +263,7 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CurrentStateID")
+                    b.Property<Guid>("CurrentStateId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("RequestDate")
@@ -273,7 +273,7 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("RequestorID")
+                    b.Property<Guid>("RequestorId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("VersionNumber")
@@ -281,9 +281,9 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CurrentStateID");
+                    b.HasIndex("CurrentStateId");
 
-                    b.HasIndex("RequestorID");
+                    b.HasIndex("RequestorId");
 
                     b.ToTable("Requests");
                 });
@@ -301,7 +301,7 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("RequestID")
+                    b.Property<Guid>("RequestId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("VersionNumber")
@@ -309,7 +309,7 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RequestID");
+                    b.HasIndex("RequestId");
 
                     b.ToTable("RequestVersions");
                 });
@@ -339,17 +339,17 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("FromStateID")
+                    b.Property<Guid>("FromStateId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ToStateID")
+                    b.Property<Guid>("ToStateId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FromStateID");
+                    b.HasIndex("FromStateId");
 
-                    b.HasIndex("ToStateID");
+                    b.HasIndex("ToStateId");
 
                     b.ToTable("Transitions");
                 });
@@ -407,9 +407,10 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
 
                     b.HasKey("Id");
 
-                    b.HasIndex("NormalizedName", "TenantId")
+                    b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasFilter("[NormalizedName] IS NOT NULL AND [TenantId] IS NOT NULL");
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
                 });
@@ -531,9 +532,10 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
-                    b.HasIndex("NormalizedUserName", "TenantId")
+                    b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasFilter("[NormalizedUserName] IS NOT NULL AND [TenantId] IS NOT NULL");
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -637,11 +639,11 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 {
                     b.HasOne("Approvals.NET.Domain.Entities.Approvals.ApprovalGroup", "ApprovalGroup")
                         .WithMany("Approvals")
-                        .HasForeignKey("ApprovalGroupID");
+                        .HasForeignKey("ApprovalGroupId");
 
                     b.HasOne("Approvals.NET.Domain.Entities.Approvals.ApprovalUser", "Approver")
                         .WithMany("Approvals")
-                        .HasForeignKey("ApproverID")
+                        .HasForeignKey("ApproverId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -651,13 +653,13 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
 
                     b.HasOne("Approvals.NET.Domain.Entities.Approvals.Request", "Request")
                         .WithMany("Approvals")
-                        .HasForeignKey("RequestID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("RequestId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Approvals.NET.Domain.Entities.Approvals.ApprovalStage", "Stage")
                         .WithMany("Approvals")
-                        .HasForeignKey("StageID");
+                        .HasForeignKey("StageId");
 
                     b.Navigation("ApprovalGroup");
 
@@ -672,13 +674,13 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 {
                     b.HasOne("Approvals.NET.Domain.Entities.Approvals.Approval", "Approval")
                         .WithMany("ApprovalConditions")
-                        .HasForeignKey("ApprovalID")
+                        .HasForeignKey("ApprovalId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Approvals.NET.Domain.Entities.Approvals.Condition", "Condition")
                         .WithMany("ApprovalConditions")
-                        .HasForeignKey("ConditionID")
+                        .HasForeignKey("ConditionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -691,13 +693,13 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 {
                     b.HasOne("Approvals.NET.Domain.Entities.Approvals.ApprovalGroup", "ApprovalGroup")
                         .WithMany("ApprovalGroupMembers")
-                        .HasForeignKey("ApprovalGroupID")
+                        .HasForeignKey("ApprovalGroupId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Approvals.NET.Domain.Entities.Approvals.ApprovalUser", "User")
                         .WithMany("ApprovalGroupMembers")
-                        .HasForeignKey("UserID")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -710,7 +712,7 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 {
                     b.HasOne("Approvals.NET.Domain.Entities.Approvals.ApprovalUser", "Delegate")
                         .WithMany("Delegates")
-                        .HasForeignKey("DelegateID");
+                        .HasForeignKey("DelegateId");
 
                     b.Navigation("Delegate");
                 });
@@ -719,20 +721,20 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 {
                     b.HasOne("Approvals.NET.Domain.Entities.Approvals.ApprovalUser", "EscalatedTo")
                         .WithMany("EscalatedToEscalations")
-                        .HasForeignKey("EscalatedToID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("EscalatedToId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Approvals.NET.Domain.Entities.Approvals.ApprovalUser", "OriginalApprover")
                         .WithMany("OriginalEscalations")
-                        .HasForeignKey("OriginalApproverID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("OriginalApproverId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Approvals.NET.Domain.Entities.Approvals.Request", "Request")
                         .WithMany("Escalations")
-                        .HasForeignKey("RequestID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("RequestId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("EscalatedTo");
@@ -746,13 +748,13 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 {
                     b.HasOne("Approvals.NET.Domain.Entities.Approvals.Group", "Group")
                         .WithMany("GroupMembers")
-                        .HasForeignKey("GroupID")
+                        .HasForeignKey("GroupId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Approvals.NET.Domain.Entities.Approvals.ApprovalUser", "User")
                         .WithMany("GroupMembers")
-                        .HasForeignKey("UserID")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -765,13 +767,13 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 {
                     b.HasOne("Approvals.NET.Domain.Entities.Approvals.State", "CurrentState")
                         .WithMany("Requests")
-                        .HasForeignKey("CurrentStateID")
+                        .HasForeignKey("CurrentStateId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Approvals.NET.Domain.Entities.Approvals.ApprovalUser", "Requestor")
                         .WithMany()
-                        .HasForeignKey("RequestorID")
+                        .HasForeignKey("RequestorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -784,7 +786,7 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 {
                     b.HasOne("Approvals.NET.Domain.Entities.Approvals.Request", "Request")
                         .WithMany("RequestVersions")
-                        .HasForeignKey("RequestID")
+                        .HasForeignKey("RequestId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -795,14 +797,14 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
                 {
                     b.HasOne("Approvals.NET.Domain.Entities.Approvals.State", "FromState")
                         .WithMany("FromTransitions")
-                        .HasForeignKey("FromStateID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("FromStateId")
+                        .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
                     b.HasOne("Approvals.NET.Domain.Entities.Approvals.State", "ToState")
                         .WithMany("ToTransitions")
-                        .HasForeignKey("ToStateID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("ToStateId")
+                        .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
                     b.Navigation("FromState");

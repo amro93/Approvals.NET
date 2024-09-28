@@ -3,8 +3,8 @@
     public class Transition
     {
         public Guid Id { get; set; }
-        public Guid FromStateID { get; set; }
-        public Guid ToStateID { get; set; }
+        public Guid FromStateId { get; set; }
+        public Guid ToStateId { get; set; }
         public string ActionRequired { get; set; }
 
         public State FromState { get; set; }

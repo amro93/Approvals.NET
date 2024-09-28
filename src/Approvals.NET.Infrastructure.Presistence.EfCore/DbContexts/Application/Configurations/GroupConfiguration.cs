@@ -10,7 +10,7 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
         {
             builder.HasMany(g => g.GroupMembers)
                    .WithOne(gm => gm.Group)
-                   .HasForeignKey(gm => gm.GroupID);
+                   .HasForeignKey(gm => gm.GroupId);
         }
     }
 

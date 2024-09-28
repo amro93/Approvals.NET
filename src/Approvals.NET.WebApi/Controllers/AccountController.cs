@@ -1,15 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Approvals.NET.Application.Identity.Users;
+using Approvals.NET.Application.Identity.Users.Dto;
+using Approvals.NET.Domain.Wrappers;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DClean.Application.DTOs.Account;
-using DClean.Application.Interfaces;
-using DClean.Application.Wrappers;
-using DClean.Infrastructure.Persistence.Contexts;
-
 namespace Approvals.NET.WebApi.Controllers
 {
     [Route("api/[controller]")]

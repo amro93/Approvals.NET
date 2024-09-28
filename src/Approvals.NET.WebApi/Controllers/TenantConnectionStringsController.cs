@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Approvals.NET.Application.Identity.Tenants;
+using Approvals.NET.Application.Identity.Tenants.Dto;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using DClean.Application.DTOs.Tenants;
-using DClean.Application.Interfaces.Services;
 
 namespace Approvals.NET.WebApi.Controllers
 {

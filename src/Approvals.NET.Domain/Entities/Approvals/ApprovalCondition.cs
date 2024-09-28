@@ -3,8 +3,8 @@
     public class ApprovalCondition
     {
         public Guid Id { get; set; }
-        public Guid ApprovalID { get; set; }
-        public Guid ConditionID { get; set; }
+        public Guid ApprovalId { get; set; }
+        public Guid ConditionId { get; set; }
         public bool IsMet { get; set; }
 
         public Approval Approval { get; set; }

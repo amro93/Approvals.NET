@@ -10,15 +10,18 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
         {
             builder.HasOne(e => e.Request)
                    .WithMany(r => r.Escalations)
-                   .HasForeignKey(e => e.RequestID);
+                   .HasForeignKey(e => e.RequestId)
+                   .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(e => e.OriginalApprover)
                    .WithMany(u => u.OriginalEscalations)
-                   .HasForeignKey(e => e.OriginalApproverID);
+                   .HasForeignKey(e => e.OriginalApproverId)
+                   .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(e => e.EscalatedTo)
                    .WithMany(u => u.EscalatedToEscalations)
-                   .HasForeignKey(e => e.EscalatedToID);
+                   .HasForeignKey(e => e.EscalatedToId)
+                   .OnDelete(DeleteBehavior.Restrict);
         }
     }
 

@@ -3,10 +3,10 @@
     public class Request
     {
         public Guid Id { get; set; }
-        public Guid RequestorID { get; set; }
+        public Guid RequestorId { get; set; }
         public DateTime RequestDate { get; set; }
         public string RequestDetails { get; set; }
-        public Guid CurrentStateID { get; set; }
+        public Guid CurrentStateId { get; set; }
         public Guid VersionNumber { get; set; }
 
         public ApprovalUser Requestor { get; set; }

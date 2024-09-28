@@ -96,6 +96,7 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore.DbContexts.Application
             modelBuilder.ApplyConfiguration(new ConditionConfiguration());
             modelBuilder.ApplyConfiguration(new ApprovalConditionConfiguration());
             modelBuilder.ApplyConfiguration(new RequestVersionConfiguration());
+            modelBuilder.ApplyConfiguration(new TransitionConfiguration());
 
             var tenantId = _currentTenant?.TenantId;
             modelBuilder.SetQueryFilterOnAllEntities<ISoftDeleteEntity>(t => !t.IsDeleted);

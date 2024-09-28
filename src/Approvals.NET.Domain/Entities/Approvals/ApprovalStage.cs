@@ -3,7 +3,7 @@
     public class ApprovalStage
     {
         public Guid Id { get; set; }
-        public Guid StageID { get; set; }
+        public Guid StageId { get; set; }
         public string StageName { get; set; }
         public Guid StageOrder { get; set; }
 

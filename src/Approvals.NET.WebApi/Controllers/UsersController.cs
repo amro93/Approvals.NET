@@ -4,10 +4,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using DClean.Application.DTOs.Identity.UserRoles;
-using DClean.Application.DTOs.Identity.Users;
-using DClean.Application.Filters;
-using DClean.Application.Wrappers;
+using Approvals.NET.Application.Identity.Users.Dto;
+using Approvals.NET.Domain.Wrappers;
+using Approvals.NET.Application.Identity.UserRoles.Dto;
 
 namespace Approvals.NET.WebApi.Controllers
 {

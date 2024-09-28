@@ -22,13 +22,13 @@ namespace Approvals.NET.Infrastructure.Presistence.EfCore
                 o.EnableSensitiveDataLogging();
             });
 
-            services.AddIdentityCore<ApplicationUser>()
-                .AddRoleManager<RoleManager<ApplicationRole>>()
-                .AddUserManager<UserManager<ApplicationUser>>()
-                .AddRoles<ApplicationRole>()
-                .AddRoleValidator<ApplicationRole>()
-                .AddUserStore<ApplicationUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            //services.AddIdentityCore<ApplicationUser>()
+            //    .AddRoleManager<RoleManager<ApplicationRole>>()
+            //    .AddUserManager<UserManager<ApplicationUser>>()
+            //    .AddRoles<ApplicationRole>()
+            //    .AddRoleValidator<ApplicationRole>()
+            //    .AddUserStore<ApplicationUser>()
+            //    .AddEntityFrameworkStores<ApplicationDbContext>();
         }
     }
 }
